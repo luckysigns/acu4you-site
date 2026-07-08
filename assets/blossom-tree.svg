@@ -11,82 +11,178 @@
     <g id="bloom">
       <use href="#fl" fill="#e79fae" />
       <circle r="2.6" fill="#c96f83" />
+      <circle cx="0" cy="-3.4" r=".9" fill="#fbe9ee" />
+      <circle cx="3" cy="1.8" r=".9" fill="#fbe9ee" />
+      <circle cx="-3" cy="1.8" r=".9" fill="#fbe9ee" />
     </g>
     <g id="bloomLight">
       <use href="#fl" fill="#f3cfd6" />
       <circle r="2.4" fill="#dd93a3" />
     </g>
+    <g id="bloomDeep">
+      <use href="#fl" fill="#d97f93" />
+      <circle r="2.5" fill="#b25e72" />
+      <circle cx="0" cy="-3.2" r=".8" fill="#f7dde4" />
+    </g>
     <g id="bud">
       <circle r="3.6" fill="#c96f83" />
       <circle cx="2.5" cy="-2.5" r="2.2" fill="#e79fae" />
     </g>
-    <!-- cluster of blossoms -->
-    <g id="cluster">
-      <use href="#bloom" transform="translate(0 0)" />
-      <use href="#bloomLight" transform="translate(15 -8) scale(.82)" />
-      <use href="#bloom" transform="translate(-13 -10) scale(.72)" />
-      <use href="#bud" transform="translate(9 9)" />
-    </g>
+    <!-- blossom clusters, small to large -->
     <g id="clusterSm">
       <use href="#bloomLight" transform="scale(.8)" />
       <use href="#bloom" transform="translate(-11 -7) scale(.62)" />
       <use href="#bud" transform="translate(8 6) scale(.9)" />
     </g>
+    <g id="cluster">
+      <use href="#bloom" transform="translate(0 0)" />
+      <use href="#bloomLight" transform="translate(15 -8) scale(.82)" />
+      <use href="#bloomDeep" transform="translate(-13 -10) scale(.72)" />
+      <use href="#bud" transform="translate(9 9)" />
+    </g>
+    <g id="clusterLg">
+      <use href="#bloom" transform="translate(0 0) scale(1.05)" />
+      <use href="#bloomLight" transform="translate(16 -9) scale(.85)" />
+      <use href="#bloomDeep" transform="translate(-15 -6) scale(.8)" />
+      <use href="#bloom" transform="translate(4 -17) scale(.66) rotate(24)" />
+      <use href="#bloomLight" transform="translate(-8 12) scale(.6)" />
+      <use href="#bud" transform="translate(13 8)" />
+      <use href="#bud" transform="translate(-20 5) scale(.85)" />
+    </g>
   </defs>
 
-  <!-- faint background branch for depth -->
-  <g stroke="#8a6f58" stroke-width="5" fill="none" stroke-linecap="round" opacity=".22">
-    <path d="M -20 40 C 260 90 520 30 830 66 C 1120 98 1360 40 1620 66" />
-    <path d="M 500 42 q 60 -22 130 -18" />
-    <path d="M 1150 62 q 70 -30 150 -26" />
+  <!-- ===== far background canopy (depth layer 1) ===== -->
+  <g stroke="#9c8266" stroke-width="4" fill="none" stroke-linecap="round" opacity=".14">
+    <path d="M -20 26 C 240 66 520 16 830 46 C 1120 74 1360 22 1620 48" />
+    <path d="M 320 40 q 70 -22 150 -16" />
+    <path d="M 900 48 q 80 -30 170 -22" />
+    <path d="M 1360 40 q 60 -18 130 -12" />
   </g>
-  <g opacity=".28">
-    <use href="#clusterSm" transform="translate(300 60) scale(.9)" />
-    <use href="#clusterSm" transform="translate(640 38)" />
-    <use href="#clusterSm" transform="translate(1010 72) scale(.85)" />
-    <use href="#clusterSm" transform="translate(1330 40)" />
+  <g opacity=".14">
+    <use href="#clusterSm" transform="translate(180 34)" />
+    <use href="#clusterSm" transform="translate(475 26) scale(.9)" />
+    <use href="#clusterSm" transform="translate(760 40)" />
+    <use href="#clusterSm" transform="translate(1075 32) scale(.92)" />
+    <use href="#clusterSm" transform="translate(1495 30) scale(.85)" />
   </g>
 
-  <!-- trunk entering from bottom-left -->
+  <!-- ===== mid background layer (depth layer 2) ===== -->
+  <g stroke="#8a6f58" stroke-width="5" fill="none" stroke-linecap="round" opacity=".24">
+    <path d="M -20 44 C 260 92 520 34 830 68 C 1120 100 1360 44 1620 68" />
+    <path d="M 500 46 q 60 -22 130 -18" />
+    <path d="M 700 60 q 50 26 60 58" />
+    <path d="M 1150 64 q 70 -30 150 -26" />
+    <path d="M 240 62 q 40 22 48 52" />
+  </g>
+  <g opacity=".3">
+    <use href="#clusterSm" transform="translate(300 60) scale(.9)" />
+    <use href="#clusterSm" transform="translate(640 40)" />
+    <use href="#clusterSm" transform="translate(772 122) scale(.75)" />
+    <use href="#clusterSm" transform="translate(1010 74) scale(.85)" />
+    <use href="#clusterSm" transform="translate(1330 42)" />
+    <use href="#clusterSm" transform="translate(292 116) scale(.7)" />
+    <use href="#clusterSm" transform="translate(1560 66) scale(.8)" />
+  </g>
+
+  <!-- ===== trunk, entering bottom-left, with fork ===== -->
   <path d="M -30 250 C 20 205 55 175 105 143 C 130 127 160 112 195 103"
         fill="none" stroke="#4b3629" stroke-width="22" stroke-linecap="round" />
   <path d="M -18 250 C 30 215 70 185 118 152"
         fill="none" stroke="#3d2b20" stroke-width="9" stroke-linecap="round" opacity=".55" />
+  <!-- fork limb climbing up-left -->
+  <path d="M 96 150 C 120 118 148 84 196 58 C 224 43 252 36 282 34"
+        fill="none" stroke="#4b3629" stroke-width="10" stroke-linecap="round" />
+  <path d="M 190 62 q 26 -26 60 -30" fill="none" stroke="#4b3629" stroke-width="5" stroke-linecap="round" />
+  <path d="M 148 96 q -22 -14 -48 -12" fill="none" stroke="#4b3629" stroke-width="4.5" stroke-linecap="round" />
 
-  <!-- main branch sweeping right -->
+  <!-- ===== main branch sweeping right ===== -->
   <path d="M 180 106 C 320 78 460 96 620 84 C 780 72 900 98 1060 84 C 1220 70 1380 94 1520 80 C 1560 76 1590 74 1625 70"
         fill="none" stroke="#4b3629" stroke-width="11" stroke-linecap="round" />
   <path d="M 180 106 C 320 80 460 98 620 86"
         fill="none" stroke="#4b3629" stroke-width="14" stroke-linecap="round" />
   <path d="M 1060 84 C 1220 70 1380 94 1520 80 C 1560 76 1590 74 1625 70"
         fill="none" stroke="#4b3629" stroke-width="8" stroke-linecap="round" />
+  <!-- bark shadow line -->
+  <path d="M 300 88 C 430 76 560 90 700 80" fill="none" stroke="#3d2b20" stroke-width="3" stroke-linecap="round" opacity=".4" />
 
-  <!-- upper twigs with blossom clusters -->
+  <!-- ===== large sub-branches ===== -->
+  <g fill="none" stroke="#4b3629" stroke-linecap="round">
+    <!-- sweeping up over the 500-750 zone -->
+    <path d="M 430 92 C 490 62 560 42 640 34 C 680 30 716 30 748 34" stroke-width="6.5" />
+    <path d="M 560 48 q 30 -20 66 -22" stroke-width="4" />
+    <!-- rising over the 850-1100 zone -->
+    <path d="M 860 90 C 910 60 968 40 1040 32 C 1074 28 1102 30 1128 36" stroke-width="6" />
+    <path d="M 985 44 q 34 -16 72 -14" stroke-width="3.6" />
+    <!-- lifting toward the right edge -->
+    <path d="M 1250 86 C 1300 60 1352 44 1414 38 C 1448 35 1478 38 1506 44" stroke-width="5.5" />
+    <!-- short spur over the left -->
+    <path d="M 262 92 C 300 70 342 56 392 52" stroke-width="5" />
+  </g>
+
+  <!-- ===== upper twigs ===== -->
   <g fill="none" stroke="#4b3629" stroke-linecap="round">
     <path d="M 250 92 Q 268 58 300 48" stroke-width="5" />
+    <path d="M 340 72 q 14 -22 40 -28" stroke-width="4" />
     <path d="M 470 92 Q 486 62 520 52" stroke-width="5" />
+    <path d="M 640 34 q 18 -12 44 -12" stroke-width="3.5" />
     <path d="M 700 82 Q 716 52 752 44" stroke-width="5" />
-    <path d="M 905 88 Q 918 60 950 50" stroke-width="4.5" />
-    <path d="M 1120 80 Q 1138 50 1172 42" stroke-width="4.5" />
-    <path d="M 1330 86 Q 1348 56 1384 48" stroke-width="4.5" />
-    <path d="M 1508 80 Q 1524 58 1556 50" stroke-width="4" />
     <path d="M 585 88 q -10 -26 -34 -34" stroke-width="4" />
+    <path d="M 812 88 q 12 -22 36 -30" stroke-width="4" />
+    <path d="M 905 88 Q 918 60 950 50" stroke-width="4.5" />
+    <path d="M 1040 32 q 20 -10 46 -8" stroke-width="3.4" />
     <path d="M 1015 86 q -10 -24 -32 -32" stroke-width="4" />
+    <path d="M 1120 80 Q 1138 50 1172 42" stroke-width="4.5" />
+    <path d="M 1216 82 q 12 -20 34 -26" stroke-width="3.8" />
+    <path d="M 1330 86 Q 1348 56 1384 48" stroke-width="4.5" />
+    <path d="M 1414 38 q 18 -10 42 -8" stroke-width="3.2" />
+    <path d="M 1508 80 Q 1524 58 1556 50" stroke-width="4" />
+    <path d="M 1560 74 q 16 -8 40 -6" stroke-width="3" />
   </g>
-  <use href="#cluster" transform="translate(304 46)" />
-  <use href="#cluster" transform="translate(524 50) scale(.92)" />
-  <use href="#cluster" transform="translate(756 42)" />
-  <use href="#clusterSm" transform="translate(953 48)" />
-  <use href="#cluster" transform="translate(1176 40) scale(.9)" />
-  <use href="#clusterSm" transform="translate(1388 46)" />
-  <use href="#clusterSm" transform="translate(1558 48) scale(.85)" />
-  <use href="#clusterSm" transform="translate(549 52) scale(.8)" />
-  <use href="#clusterSm" transform="translate(981 52) scale(.75)" />
-  <use href="#bloomLight" transform="translate(214 88) scale(.7)" />
-  <use href="#bloom" transform="translate(662 80) scale(.65)" />
-  <use href="#bloomLight" transform="translate(1258 78) scale(.65)" />
 
-  <!-- hanging twigs that meet the menu links (x = 128, 336, 544, 752, 960, 1168, 1376) -->
+  <!-- ===== blossom clusters on the canopy ===== -->
+  <use href="#cluster" transform="translate(304 46)" />
+  <use href="#clusterSm" transform="translate(382 42) scale(.9)" />
+  <use href="#clusterLg" transform="translate(524 50) scale(.95)" />
+  <use href="#cluster" transform="translate(628 30) scale(.9) rotate(-8)" />
+  <use href="#clusterSm" transform="translate(686 20)" />
+  <use href="#clusterLg" transform="translate(756 42)" />
+  <use href="#clusterSm" transform="translate(549 52) scale(.8)" />
+  <use href="#cluster" transform="translate(850 56) scale(.88) rotate(10)" />
+  <use href="#clusterSm" transform="translate(953 48)" />
+  <use href="#clusterLg" transform="translate(1044 30) scale(.9)" />
+  <use href="#clusterSm" transform="translate(1090 24) scale(.8)" />
+  <use href="#cluster" transform="translate(1176 40) scale(.9)" />
+  <use href="#clusterSm" transform="translate(1252 54) scale(.85)" />
+  <use href="#cluster" transform="translate(1310 34) scale(.85) rotate(-12)" />
+  <use href="#clusterLg" transform="translate(1420 36) scale(.85)" />
+  <use href="#clusterSm" transform="translate(1388 46) scale(.8)" />
+  <use href="#clusterSm" transform="translate(1558 48) scale(.9)" />
+  <use href="#clusterSm" transform="translate(1600 70) scale(.8)" />
+  <!-- fork limb blossoms -->
+  <use href="#cluster" transform="translate(286 32) scale(.9)" />
+  <use href="#clusterSm" transform="translate(252 30) scale(.85)" />
+  <use href="#clusterSm" transform="translate(102 82) scale(.8)" />
+  <use href="#clusterSm" transform="translate(212 88) scale(.75)" />
+  <!-- single blossoms + buds dotted along the branches -->
+  <use href="#bloomLight" transform="translate(214 88) scale(.7)" />
+  <use href="#bloom" transform="translate(362 66) scale(.6) rotate(18)" />
+  <use href="#bloomDeep" transform="translate(452 78) scale(.62)" />
+  <use href="#bloom" transform="translate(662 80) scale(.65)" />
+  <use href="#bloomLight" transform="translate(834 74) scale(.62) rotate(-14)" />
+  <use href="#bloomDeep" transform="translate(918 70) scale(.58)" />
+  <use href="#bloom" transform="translate(1002 60) scale(.6) rotate(22)" />
+  <use href="#bloomLight" transform="translate(1136 62) scale(.64)" />
+  <use href="#bloomDeep" transform="translate(1258 78) scale(.6) rotate(-20)" />
+  <use href="#bloomLight" transform="translate(1462 60) scale(.66)" />
+  <use href="#bloom" transform="translate(1540 64) scale(.58) rotate(12)" />
+  <use href="#bud" transform="translate(408 84) scale(.9)" />
+  <use href="#bud" transform="translate(598 78) scale(.8)" />
+  <use href="#bud" transform="translate(886 78) scale(.85)" />
+  <use href="#bud" transform="translate(1194 72) scale(.8)" />
+  <use href="#bud" transform="translate(1352 76) scale(.9)" />
+
+  <!-- ===== hanging twigs that meet the menu links (anchors preserved:
+       x = 128, 336, 544, 752, 960, 1168, 1376) ===== -->
   <g fill="none" stroke="#4b3629" stroke-linecap="round">
     <path d="M 138 112 Q 124 120 128 134" stroke-width="4.5" />
     <path d="M 342 90 Q 330 116 336 148" stroke-width="4.5" />
@@ -95,6 +191,16 @@
     <path d="M 966 86 Q 954 106 960 134" stroke-width="4.5" />
     <path d="M 1174 78 Q 1162 110 1168 148" stroke-width="4.5" />
     <path d="M 1382 90 Q 1370 108 1376 134" stroke-width="4.5" />
+  </g>
+  <!-- small leaves on the hanging twigs -->
+  <g fill="#c96f83" opacity=".9">
+    <ellipse cx="121" cy="122" rx="4.2" ry="2.2" transform="rotate(-38 121 122)" fill="#e79fae" />
+    <ellipse cx="343" cy="118" rx="4" ry="2.1" transform="rotate(32 343 118)" fill="#f3cfd6" />
+    <ellipse cx="536" cy="110" rx="4" ry="2.1" transform="rotate(-30 536 110)" fill="#e79fae" />
+    <ellipse cx="759" cy="116" rx="4" ry="2.1" transform="rotate(30 759 116)" fill="#f3cfd6" />
+    <ellipse cx="953" cy="110" rx="4" ry="2.1" transform="rotate(-32 953 110)" fill="#e79fae" />
+    <ellipse cx="1175" cy="112" rx="4" ry="2.1" transform="rotate(28 1175 112)" fill="#f3cfd6" />
+    <ellipse cx="1369" cy="112" rx="4" ry="2.1" transform="rotate(-30 1369 112)" fill="#e79fae" />
   </g>
   <g fill="#c96f83">
     <circle cx="128" cy="134" r="3" />
@@ -106,13 +212,19 @@
     <circle cx="1376" cy="134" r="3" />
   </g>
 
-  <!-- drifting petals -->
+  <!-- ===== drifting petals ===== -->
   <g fill="#eeb7c2" opacity=".8">
-    <ellipse cx="420" cy="150" rx="5" ry="2.8" transform="rotate(-24 420 150)" />
-    <ellipse cx="875" cy="140" rx="4.6" ry="2.6" transform="rotate(18 875 140)" />
-    <ellipse cx="1290" cy="150" rx="5" ry="2.8" transform="rotate(-30 1290 150)" />
-    <ellipse cx="655" cy="170" rx="4.2" ry="2.4" transform="rotate(40 655 170)" />
-    <ellipse cx="1470" cy="128" rx="4.4" ry="2.5" transform="rotate(-12 1470 128)" />
     <ellipse cx="230" cy="150" rx="4" ry="2.3" transform="rotate(30 230 150)" />
+    <ellipse cx="420" cy="150" rx="5" ry="2.8" transform="rotate(-24 420 150)" />
+    <ellipse cx="500" cy="120" rx="4.2" ry="2.4" transform="rotate(14 500 120)" />
+    <ellipse cx="655" cy="170" rx="4.2" ry="2.4" transform="rotate(40 655 170)" />
+    <ellipse cx="700" cy="108" rx="3.8" ry="2.2" transform="rotate(-18 700 108)" />
+    <ellipse cx="875" cy="140" rx="4.6" ry="2.6" transform="rotate(18 875 140)" />
+    <ellipse cx="912" cy="184" rx="4" ry="2.3" transform="rotate(-34 912 184)" />
+    <ellipse cx="1058" cy="118" rx="4" ry="2.3" transform="rotate(24 1058 118)" />
+    <ellipse cx="1290" cy="150" rx="5" ry="2.8" transform="rotate(-30 1290 150)" />
+    <ellipse cx="1320" cy="104" rx="3.8" ry="2.2" transform="rotate(16 1320 104)" />
+    <ellipse cx="1470" cy="128" rx="4.4" ry="2.5" transform="rotate(-12 1470 128)" />
+    <ellipse cx="1524" cy="176" rx="4" ry="2.3" transform="rotate(36 1524 176)" />
   </g>
 </svg>
